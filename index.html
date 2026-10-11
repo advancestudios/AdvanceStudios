@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AdvanceStudios™</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* --- FUENTES Y VARIABLES DEL SISTEMA --- */
+        :root {
+            --font-stack: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            --border-radius-card: 12px;
+            --border-radius-btn: 6px;
+            
+            /* Colores de las secciones */
+            --card-bg: rgba(35, 35, 40, 0.6);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --text-main: #ffffff;
+            --text-muted: #cccccc;
+            
+            /* CIAN EQUILIBRADO */
+            --accent-color: #00f0ff; 
+            --accent-hover: #00d8e6;
+            --link-box-bg: rgba(255, 255, 255, 0.07);
+            --link-box-hover: rgba(255, 255, 255, 0.15);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* --- FONDO ANIMADO RGB SUAVE --- */
+        body {
+            font-family: var(--font-stack);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 60px 20px 30px 20px;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #121214, #1a1c24, #15222e, #1c1625, #121214);
+            background-size: 400% 400%;
+            animation: rgbMovimientoSuave 20s ease infinite;
+        }
+
+        @keyframes rgbMovimientoSuave {
+            0% { background-position: 0% 0%; }
+            50% { background-position: 100% 100%; }
+            100% { background-position: 0% 0%; }
+        }
+
+        /* --- HEADER Y TÍTULO CON EFECTO 3D --- */
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            width: 100%;
+            max-width: 700px;
+            animation: fadeInEfecto 1s ease-out forwards;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            color: #ffffff;
+            text-shadow: 
+                0 1px 0 #d9d9d9,
+                0 2px 0 #b3b3b3,
+                0 3px 0 #999999,
+                0 4px 0 #808080,
+                0 5px 0 #666666,
+                0 6px 1px rgba(0,0,0,0.1),
+                0 0 5px rgba(0,0,0,0.1),
+                0 1px 3px rgba(0,0,0,0.3),
+                0 3px 5px rgba(0,0,0,0.2),
+                0 5px 10px rgba(0,0,0,0.25),
+                0 10px 10px rgba(0,0,0,0.2),
+                0 20px 20px rgba(0,0,0,0.15);
+        }
+
+        /* --- CONTENEDOR DE SECCIONES LIBRES --- */
+        .sections-wrapper {
+            width: 100%;
+            max-width: 700px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            animation: fadeInEfecto 1.2s ease-out forwards;
+        }
+
+        .section-box {
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: var(--border-radius-card);
+            padding: 24px;
+            width: 100%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        /* --- SUBTÍTULOS ESTILO PROTOTIPO BANNER GAMING --- */
+        .section-box h2 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 22px;
+            color: var(--text-main);
+            display: flex; 
+            align-items: center;
+            position: relative;
+            z-index: 1;
+            height: 38px;
+            padding-left: 16px;
+            background: linear-gradient(125deg, #2b2b30 0%, #2b2b30 72%, transparent 72.1%);
+        }
+
+        .section-box h2::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 100%;
+            width: 25%; 
+            z-index: -1;
+            background: linear-gradient(125deg, 
+                transparent 0%, 
+                transparent 15%, 
+                var(--accent-color) 15.1%, 
+                var(--accent-color) 45%, 
+                transparent 45.1%, 
+                transparent 55%, 
+                var(--accent-color) 55.1%, 
+                var(--accent-color) 85%, 
+                transparent 85.1%
+            );
+        }
+
+        /* --- 1ra Sección: Deshabilitada temporalmente --- */
+        .preview-disabled-text {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            font-style: italic;
+            opacity: 0.6;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding-left: 5px;
+        }
+        
+        /* --- 2da Sección: Descripción --- */
+        .description-text {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            padding-left: 5px;
+        }
+
+        /* --- 3ra Sección: Botón de Descarga --- */
+        .download-wrapper {
+            width: 100%;
+        }
+
+        .download-link-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+            background-color: var(--link-box-bg);
+            border: 1px solid var(--card-border);
+            border-radius: var(--border-radius-btn);
+            text-decoration: none;
+            color: var(--text-main);
+            font-size: 1.05rem;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .download-link-item:hover {
+            border-color: var(--accent-color);
+            background-color: var(--link-box-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 240, 255, 0.2);
+        }
+
+        /* --- SECCIÓN REDES SOCIALES --- */
+        .social-bar-section {
+            width: 100%;
+            max-width: 700px;
+            margin-top: 35px;
+            animation: fadeInEfecto 1.4s ease-out forwards;
+        }
+
+        .grid-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            width: 100%;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 14px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            background-color: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: var(--border-radius-btn);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.15s ease;
+        }
+
+        .social-link i {
+            font-size: 1rem;
+            transition: transform 0.2s ease;
+        }
+
+        .social-link:hover {
+            background-color: var(--link-box-bg);
+            border-color: rgba(255, 255, 255, 0.2);
+            color: var(--text-main);
+        }
+
+        .social-link:hover i {
+            transform: scale(1.15);
+        }
+
+        /* --- 🎯 BOTÓN FLOTANTE DE INFORMACIÓN CON TU IMAGEN --- */
+        .info-floating-btn {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            z-index: 999; /* Asegura que flote por encima de todo el contenido */
+            display: block;
+            width: 55px;  /* Tamaño ideal en móviles */
+            height: 55px;
+            transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.2s ease;
+            cursor: pointer;
+        }
+
+        .info-floating-btn img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* Mantiene las proporciones correctas de icon_info.png */
+        }
+
+        /* Efecto interactivo al pasar el mouse (Efecto "Pop" alegre) */
+        .info-floating-btn:hover {
+            transform: scale(1.15) rotate(5deg);
+            filter: drop-shadow(0 0 12px rgba(0, 240, 255, 0.6));
+        }
+
+        /* Efecto de pulsación al hacer clic */
+        .info-floating-btn:active {
+            transform: scale(0.95);
+        }
+
+        /* --- FOOTER TOTALMENTE DIRECTO A LA PÁGINA --- */
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.35);
+            width: 100%;
+            animation: fadeInEfecto 1.6s ease-out forwards;
+        }
+
+        @keyframes fadeInEfecto {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- RESPONSIVIDAD --- */
+        @media (min-width: 768px) {
+            body {
+                padding-top: 80px;
+            }
+            h1 {
+                font-size: 3.4rem;
+            }
+            .grid-buttons {
+                flex-direction: row;
+            }
+            .social-link {
+                flex: 1;
+            }
+            /* Botón un poco más grande en pantallas de escritorio */
+            .info-floating-btn {
+                bottom: 35px;
+                right: 35px;
+                width: 65px;
+                height: 65px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>AdvanceStudios™</h1>
+    </header>
+
+    <div class="sections-wrapper">
+        
+        <section class="section-box" style="opacity: 0.85;">
+            <h2>🖼️ Imágenes Previas</h2>
+            <div class="preview-disabled-text">
+                <span>🔒 Contenido en desarrollo. Próximamente disponible.</span>
+            </div>
+        </section>
+
+        <section class="section-box">
+            <h2>📝 Descripción</h2>
+            <p class="description-text">
+                Bienvenido a la Pagina oficial de AdvanceStudios™, donde encontraras los ultimos lanzamientos y proyectos desarrollados por el equipo oficial de AdvanceStudios™.
+            </p>
+        </section>
+
+        <section class="section-box">
+            <div class="download-wrapper">
+                <a href="#" class="download-link-item">
+                    Descargar
+                </a>
+            </div>
+        </section>
+
+    </div>
+
+    <div class="social-bar-section">
+        <div class="grid-buttons">
+            <a href="#" class="social-link"><i class="fa-brands fa-x-twitter"></i> X (Twitter)</a>
+            <a href="#" class="social-link"><i class="fa-brands fa-discord"></i> Discord</a>
+            <a href="#" class="social-link"><i class="fa-brands fa-youtube"></i> YouTube</a>
+            <a href="#" class="social-link"><i class="fa-solid fa-headset"></i> Soporte</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 AdvanceStudios™. All Rights Reserved.</p>
+    </footer>
+
+    <a href="https://github.com/SrAdvance1101/advancestudios.index/tree/main" class="info-floating-btn" title="Ver documentación en GitHub">
+        <img src="https://cdn-icons-png.flaticon.com/512/174/174197.png" alt="Información de AdvanceStudios">
+    </a>
+
+</body>
+</html>
