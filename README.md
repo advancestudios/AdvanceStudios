@@ -13,7 +13,8 @@ Me presento como @cpucord dentro de discord, o tambien conocido como **AdvanceSt
 
 ## Proyectos
 Actualmente, está en proceso de desarrollo un nuevo bot de Discord llamado, **CPU**<img width="332" height="660" alt="image" src="https://github.com/user-attachments/assets/a3b738ce-379f-4a9c-a341-7136030c7ec1" />
-, el cual tiene como finalidad mejorar la Gestión y la Moderación del Servidor, y además de traer utilidades de nivel avanzado.
+
+el cual tiene como finalidad mejorar la Gestión y la Moderación del Servidor, y además de traer utilidades de nivel avanzado.
 
 ### Comandos mas populares/usados
 - Entre los comandos mas destacados de CPU, se encuentran:
