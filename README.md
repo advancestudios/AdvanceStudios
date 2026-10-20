@@ -12,8 +12,7 @@ Me presento como @cpucord dentro de discord, o tambien conocido como **AdvanceSt
   - @suecex
 
 ## Proyectos
-Actualmente, está en proceso de desarrollo un nuevo bot de Discord llamado, **CPU**<img width="332" height="660" alt="image" src="https://github.com/user-attachments/assets/a3b738ce-379f-4a9c-a341-7136030c7ec1" /><img width="284" height="58" alt="image" src="https://github.com/user-attachments/assets/cd571574-6bbc-4b68-9357-ac59b7f4f5b3" />
-
+Actualmente, está en proceso de desarrollo un nuevo bot de Discord llamado, **CPU**<img width="332" height="660" alt="image" src="https://github.com/user-attachments/assets/a3b738ce-379f-4a9c-a341-7136030c7ec1" />
 , el cual tiene como finalidad mejorar la Gestión y la Moderación del Servidor, y además de traer utilidades de nivel avanzado.
 
 ### Comandos mas populares/usados
